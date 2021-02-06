@@ -1,0 +1,16 @@
+{
+  "blogs": [
+    {
+      "title": "My First Blog",
+      "body": "Why we do use it? \n It is a long established fact that a render will be distracted",
+      "author": "mario",
+      "id": 1
+    },
+    {
+      "title": "Opening Party!",
+      "body": "Why we do use it? \n It is a long established fact that a render will be distracted",
+      "author": "yoshi",
+      "id": 2
+    }
+  ]
+}
