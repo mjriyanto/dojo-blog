@@ -1,17 +1,28 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const Create = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [author, setAuthor] = useState('mario');
+  const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const blog = { title, body, author };
 
-    console.log(e);
-    console.log(blog);
-  }
+    setLoading(true);
+    fetch('http://localhost:8000/blogs', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(blog),
+    }).then(() => {
+      console.log('New Blog added');
+      setLoading(false);
+      history.push('/');
+    });
+  };
 
   return (
     <div className="create">
@@ -35,7 +46,8 @@ const Create = () => {
           <option value="mario">Mario</option>
           <option value="yoshi">Yoshi</option>
         </select>
-        <button>Add blog</button>
+        {!loading && <button>Add blog</button>}
+        {loading && <button disabled>Adding blog...</button>}
       </form>
     </div>
   );
