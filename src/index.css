@@ -101,3 +101,17 @@
   border-radius: 8px;
   cursor: pointer;
 }
+
+/* 404 Style */
+.not-found h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 30px;
+}
+.not-found p {
+  margin-bottom: 20px;
+}
+.not-found a {
+  text-decoration: none;
+  color: #1e88e5;
+}
